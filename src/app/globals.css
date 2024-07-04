@@ -31,3 +31,8 @@ body {
     text-wrap: balance;
   }
 }
+
+@font-face {
+  font-family: "Galmuri";
+  src: url("https://fastly.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css");
+}

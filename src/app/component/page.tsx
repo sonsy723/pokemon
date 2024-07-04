@@ -11,6 +11,8 @@ interface PokemonListProps {
 const PokemonList: React.FC<PokemonListProps> = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
 
+  console.log("왜 안나와");
+
   useEffect(() => {
     const loadPokemon = async () => {
       const response = await axios.get("/api/pokemons");
@@ -20,8 +22,10 @@ const PokemonList: React.FC<PokemonListProps> = () => {
     loadPokemon();
   }, []);
 
+  // const onClickHandler = () => {};
+
   return (
-    <div className="p-12 grid grid-cols-6 gap-6">
+    <div className="p-12 pt-24 grid grid-cols-6 gap-6">
       {pokemons.map((pokemon) => (
         <button
           key={pokemon.id}
