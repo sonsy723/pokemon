@@ -29,6 +29,7 @@ export const GET = async (request: Request) => {
 
     return NextResponse.json(allPokemonData);
   } catch (error) {
+    console.error("Error fetching pokemons:", error);
     return NextResponse.json({ error: "Failed to fetch data" });
   }
 };

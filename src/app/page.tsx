@@ -1,4 +1,4 @@
-import Image from "next/image";
+import PokemonList from "./component/page";
 
 export default function Home() {
   return <div></div>;
