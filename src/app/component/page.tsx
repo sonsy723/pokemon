@@ -11,8 +11,6 @@ interface PokemonListProps {
 const PokemonList: React.FC<PokemonListProps> = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
 
-  console.log("왜 안나와");
-
   useEffect(() => {
     const loadPokemon = async () => {
       const response = await axios.get("/api/pokemons");
