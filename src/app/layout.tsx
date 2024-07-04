@@ -26,14 +26,14 @@ export default function RootLayout({
           <Link href={"/"}>
             <img src="/dr_oh.png" alt="오박사" className="h-48 mt-6 m-auto" />
           </Link>
-          <div className="w-1/2 h-24 m-auto flex items-center text-xl p-10 border-2 rounded-xl font-Galmuri">
+          <div className="w-1/2 h-24 m-auto flex items-center text-xl p-10 border-2 rounded-xl font-Galmuri9">
             ▶ 바깥은 혼자 돌아다니기엔 위험하단다 !<br />
-            &nbsp;&nbsp;&nbsp;&nbsp; 이 아이들 중 하나를 데려가렴 !
+            &nbsp;&nbsp;&nbsp; 이 아이들 중 하나를 데려가렴 !
           </div>
 
           {children}
 
-          <footer className="w-full static bottom-0 text-center py-12 mt-8 bg-zinc-900 ">
+          <footer className="w-full static bottom-0 text-center py-12 mt-16 bg-zinc-900 font-Galmuri9 ">
             <div className="flex items-center justify-center">
               <a href="https://velog.io/@sonsy723/posts" target="/">
                 <FontAwesomeIcon

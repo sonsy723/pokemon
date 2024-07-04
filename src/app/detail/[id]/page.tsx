@@ -1,13 +1,22 @@
+import axios from "axios";
 import { Metadata } from "next";
+
+const fetchPokemonData = async (id: string) => {
+  const apiUrl = "http://localhost:3000";
+  const response = await fetch(`${apiUrl}/api/pokemons/${id}`);
+  return response.json();
+};
 
 export const metadata: Metadata = {
   title: "Pokemon Book",
   description: "Pokemon Book",
 };
 
-function DetailPage({ params: { id } }: { params: { id: string } }) {
+const DetailPage = async ({ params }: { params: { id: string } }) => {
+  const pokemonData = await fetchPokemonData(params.id);
+  console.log(pokemonData);
   return (
-    <div className="w-1/2 h-auto m-auto mt-12 bg-white text-black rounded-xl">
+    <div className="w-1/2 h-auto m-auto mt-12 bg-white text-black rounded-xl font-Galmuri9">
       <div className="bg-neutral-200 text-center py-6 rounded-xl">
         <h3 className="text-2xl font-bold mb-2">몬스터이름</h3>
         <p>NO.숫자</p>
@@ -24,11 +33,11 @@ function DetailPage({ params: { id } }: { params: { id: string } }) {
         <p className="font-bold pb-2">기술 :</p>
         <p>{}</p>
       </div>
-      <button className="bg-blue-600	w-28 h-10 rounded-xl text-white font-bold item-center">
-        뒤로 가기
+      <button className="w-28 h-10 rounded-xl font-bold item-center text-black hover:text-rose-500">
+        ▶ 뒤로 가기
       </button>
     </div>
   );
-}
+};
 
 export default DetailPage;

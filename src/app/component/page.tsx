@@ -23,17 +23,17 @@ const PokemonList: React.FC<PokemonListProps> = () => {
   }, []);
 
   return (
-    <div className="p-12 pt-24 grid grid-cols-6 gap-6">
+    <div className="p-12 pt-24 grid grid-cols-6 gap-6 font-Galmuri9">
       {pokemons.map((pokemon) => (
         <button
           key={pokemon.id}
-          className="w-58 h-52 p-4 border-2 border-neutral-600 rounded-xl hover:w-62 hover:h-54 hover:bg-neutral-800 hover:border-neutral-400"
+          className="w-58 h-52 p-4 border-2 border-neutral-600 rounded-xl hover:bg-neutral-800 hover:border-neutral-400"
         >
-          <Link href={`/pokemon/${pokemon.id}`}>
+          <Link href={`/detail/${pokemon.id}`}>
             <img
               src={pokemon.sprites.front_default}
               alt={pokemon.name}
-              className="m-auto"
+              className="m-auto hover:w-28"
             />
             <p className="py-2">{pokemon.korean_name}</p>
             <p className="text-xs">NO. {pokemon.id}</p>
