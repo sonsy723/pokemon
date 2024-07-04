@@ -14,26 +14,28 @@ export const metadata: Metadata = {
 
 const DetailPage = async ({ params }: { params: { id: string } }) => {
   const pokemonData = await fetchPokemonData(params.id);
-  console.log(pokemonData);
   return (
-    <div className="w-1/2 h-auto m-auto mt-12 bg-white text-black rounded-xl font-Galmuri9">
+    <div className="w-1/2 h-auto pb-4 m-auto mt-12 bg-white text-black rounded-xl font-Galmuri9">
       <div className="bg-neutral-200 text-center py-6 rounded-xl">
-        <h3 className="text-2xl font-bold mb-2">몬스터이름</h3>
-        <p>NO.숫자</p>
+        <h3 className="text-2xl font-bold mb-2">{pokemonData.korean_name}</h3>
+        <p>NO.{pokemonData.order}</p>
       </div>
       <div className="p-6 text-center">
-        <img src="#" alt="몬스터 모습" className="m-auto pb-2" />
-        <p className="pb-2">이름 : {}</p>
+        <img
+          src={pokemonData.sprites.front_default}
+          alt={pokemonData.korean_name}
+          className="m-auto pb-2 w-32"
+        />
+        <p className="pb-2">이름 : {pokemonData.korean_name}</p>
         <p className="text-sm pb-2">
-          키 : {} &nbsp;&nbsp; 무게 : {}
+          키 : {pokemonData.height / 10}m &nbsp;&nbsp; 무게 :{" "}
+          {pokemonData.weight / 10}kg
         </p>
-        <p className="font-bold pb-2">
-          타입 : {} &nbsp;&nbsp; 특성 : {}
-        </p>
+        <p className="font-bold pb-2">타입 : &nbsp;&nbsp; 특성 :</p>
         <p className="font-bold pb-2">기술 :</p>
-        <p>{}</p>
+        <p>{pokemonData.move}</p>
       </div>
-      <button className="w-28 h-10 rounded-xl font-bold item-center text-black hover:text-rose-500">
+      <button className="w-28 h-10 m-auto flex place-content-center rounded-xl font-bold item-center text-black hover:text-rose-500">
         ▶ 뒤로 가기
       </button>
     </div>
