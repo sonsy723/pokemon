@@ -1,5 +1,8 @@
+import { Pokemon } from "@/app/types/pokemon";
 import axios from "axios";
 import { Metadata } from "next";
+import Link from "next/link";
+import type { Metadata, ResolvingMetadata } from "next";
 
 const fetchPokemonData = async (id: string) => {
   const apiUrl = "http://localhost:3000";
@@ -7,13 +10,29 @@ const fetchPokemonData = async (id: string) => {
   return response.json();
 };
 
-export const metadata: Metadata = {
-  title: "Pokemon Book",
-  description: "Pokemon Book",
+type Props = {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
 };
 
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const pokemonData: Pokemon = await fetchPokemonData(params.id);
+  return {
+    title: pokemonData.korean_name,
+    description: pokemonData.korean_name,
+  };
+}
+
 const DetailPage = async ({ params }: { params: { id: string } }) => {
-  const pokemonData = await fetchPokemonData(params.id);
+  const pokemonData: Pokemon = await fetchPokemonData(params.id);
+
+  pokemonData.abilities.forEach((ability) => {
+    console.log(ability);
+  });
   return (
     <div className="w-1/2 h-auto pb-4 m-auto mt-12 bg-white text-black rounded-xl font-Galmuri9">
       <div className="bg-neutral-200 text-center py-6 rounded-xl">
@@ -33,11 +52,17 @@ const DetailPage = async ({ params }: { params: { id: string } }) => {
         </p>
         <p className="font-bold pb-2">타입 : &nbsp;&nbsp; 특성 :</p>
         <p className="font-bold pb-2">기술 :</p>
-        <p>{pokemonData.move}</p>
+        <p>
+          {pokemonData.abilities.map((ability) => {
+            return <span>{ability.ability.korean_name} </span>;
+          })}
+        </p>
       </div>
-      <button className="w-28 h-10 m-auto flex place-content-center rounded-xl font-bold item-center text-black hover:text-rose-500">
-        ▶ 뒤로 가기
-      </button>
+      <Link href={"/"}>
+        <button className="w-28 h-10 m-auto flex place-content-center rounded-xl font-bold item-center text-black hover:text-rose-500">
+          ▶ 뒤로 가기
+        </button>
+      </Link>
     </div>
   );
 };
