@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fastly.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css");
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -32,7 +33,9 @@ body {
   }
 }
 
-@font-face {
-  font-family: "Galmuri";
-  src: url("https://fastly.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css");
+@layer base {
+  @font-face {
+    font-family: "Galmuri9", sans-serif;
+    src: url("https://cdn.jsdelivr.net/npm/galmuri/dist/galmuri.css");
+  }
 }

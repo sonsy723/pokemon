@@ -1,4 +1,5 @@
 export type Pokemon = {
+  order: number;
   id: number;
   name: string;
   korean_name: string;
