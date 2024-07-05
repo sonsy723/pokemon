@@ -5,11 +5,7 @@ import { Pokemon } from "../types/pokemon";
 import axios from "axios";
 import Link from "next/link";
 
-interface PokemonListProps {
-  pokemons: Pokemon[];
-}
-
-const PokemonList: React.FC<PokemonListProps> = () => {
+const PokemonList = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [selectedPokemons, setSelectedPokemons] = useState<Pokemon[]>([]);
 
