@@ -55,7 +55,7 @@ const DetailPage = async ({ params }: { params: { id: string } }) => {
             return <span>{ability.ability.korean_name} </span>;
           })}
         </p>
-        <p className="font-bold pb-2">기술 :</p>
+        <p className="font-bold pb-2">[ 기술 ]</p>
         <p>
           {pokemonData.moves.map((move) => {
             return <span>{move.move.korean_name} </span>;
