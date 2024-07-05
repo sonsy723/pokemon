@@ -10,8 +10,11 @@ import Link from "next/link";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Pokemon Book",
-  description: "Pokemon Book",
+  title: "포켓 도감",
+  description: "포켓몬의 모든 것을 알려드려요!",
+  openGraph: {
+    images: ["publicopengragh.jpg"],
+  },
 };
 
 export default function RootLayout({

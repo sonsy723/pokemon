@@ -18,11 +18,10 @@ export async function generateMetadata(
   { params, searchParams }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  // read route params
   const pokemonData: Pokemon = await fetchPokemonData(params.id);
   return {
     title: pokemonData.korean_name,
-    description: pokemonData.korean_name,
+    description: "포켓몬의 모든 것을 알려드려요!",
   };
 }
 
