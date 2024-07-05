@@ -5,7 +5,7 @@ import { Pokemon } from "../types/pokemon";
 import axios from "axios";
 import Link from "next/link";
 
-export const PokemonList = () => {
+const PokemonList = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [selectedPokemons, setSelectedPokemons] = useState<Pokemon[]>([]);
 
@@ -39,3 +39,5 @@ export const PokemonList = () => {
     </div>
   );
 };
+
+export default PokemonList;
